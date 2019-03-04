@@ -15,34 +15,6 @@ client.on("message", message => {
 };     
 });
 
-client.on("message", async message => {
-    if(message.content == prefix + "server") {
-        if(!message.channel.guild) return;
-            if(!message.member.hasPermission("MANAGE_GUILD")) {
-                return message.channel.send("ليس لديك الصلآحية الكآفية . :broken_heart:");
-            }
-
-                let server = new Discord.RichEmbed()
-                    .setAuthor(message.guild.name)
-                    .setColor("RANDOM")
-                    .setTitle("Server Info :hearts: :sparkles:")
-                    .setDescription(`Members :bust_in_silhouette: : ${message.guild.memberCount}\nOwner :crown: : ${message.guild.owner.user.username}\nServer ID :id: : ${message.guild.id}\nRoles :lock: : ${message.guild.roles.size}\nRegion :earth_africa: : ${message.guild.region.toUpperCase()}`);
-
-                    message.channel.sendEmbed(server);
-
-    }
-});
-client.on("message", async message => {
-    if(message.content.startsWith(prefix + "banned")) {
-        if(!message.guild) return;
-        message.guild.fetchBans()
-        .then(bans => {
-            let b = bans.size;
-            let bb = bans.map(a => `${a}`).join(" - ");
-            message.channel.send(`**\`${b}\` | ${bb}**`);
-        });
-    }
-});
 
 client.on('ready', () => {
    console.log(`----------------`);
@@ -51,8 +23,7 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : i1Suhaib ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`Astronomy BroadCast
-`,"http://twitch.tv/S-F")
+client.user.setGame(`bc Hero Ghost`,"http://twitch.tv/S-F")
 client.user.setStatus("dnd")
 });
 
@@ -76,11 +47,11 @@ client.on("message", async message => {
             .setDescription(`**__برودكاست بوت | Version 1.1__ 
 
             برودكاست عادي : ${prefix}bc
-             bot by A★P | MalekDreemur | Broken
+             bot by DOM HERO
             معلومات عن السيرفر : ${prefix}server
             برودكاست للأونلاين فقط : ${prefix}bco
             يعرض لك عدد المتبندين من سيرفرك : ${prefix}banned
-            رابط سيرفر الدعم الفني : https://discord.gg/r287Qfh
+            رابط سيرفر الدعم الفني : https://discord.gg/M8XPKr
             **`);
             message.channel.sendEmbed(help); // رابط السيرفر يعود الى سيرفر CODES .
     }
